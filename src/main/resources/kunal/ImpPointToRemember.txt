@@ -1,0 +1,5 @@
+1) int noOfDigit = (int)Math.log10(n)+1;
+
+2) Gives directly power of 10,
+
+(int)Math.pow(10, noOfDigit -1)
