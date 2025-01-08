@@ -2,19 +2,20 @@ package com.spring_prep.learning.jpa_bouali_long.models;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 @Table(name = "author")
 @Entity
-public class Author {
+public class Author extends BaseEntity{
 
-    @Id
     /*
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
@@ -27,6 +28,7 @@ public class Author {
             allocationSize = 1
     )*/
 
+    /*
     @GeneratedValue(
             strategy = GenerationType.TABLE,
             generator = "id_gen"
@@ -38,7 +40,12 @@ public class Author {
             pkColumnValue = "id_value",
             allocationSize = 1
     )
+    @Id
     private Integer id;
+
+    moved Id to common class
+     */
+
 
     private String firstName;
 

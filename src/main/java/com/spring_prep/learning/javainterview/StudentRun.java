@@ -22,16 +22,16 @@ public class StudentRun {
         Comparator<Student> comparator = new Comparator<Student>() {
             @Override
             public int compare(Student o1, Student o2) {
-//                return o1.getFirstName().compareTo(o2.getFirstName());
-                return o1.getFirstName().length() > o2.getFirstName().length() ? 1 : -1;
+                return o1.getFirstName().compareTo(o2.getFirstName());
+//                return o1.getFirstName().length() > o2.getFirstName().length() ? 1 : -1;
             }
         };
 
         Comparator<Student> comparatorById = new Comparator<Student>() {
             @Override
             public int compare(Student o1, Student o2) {
-//                return o1.getFirstName().compareTo(o2.getFirstName());
-                return o1.getRank() > o2.getRank() ? 1 : -1;
+                return o1.getFirstName().compareTo(o2.getFirstName());
+                //return o1.getRank() > o2.getRank() ? 1 : -1;
             }
         };
 
@@ -41,8 +41,8 @@ public class StudentRun {
 
         // 2. Who lives in specific city and sort them by their name
         List<Student> sortedByAge = studentList.stream().filter(student -> student.getCity().equals("Karnataka"))
-                .sorted(comparator.thenComparing(comparatorById)).collect(Collectors.toList());
-//        sortedByAge.stream().forEach(System.out::println);
+                .sorted(comparatorById).collect(Collectors.toList());
+        sortedByAge.stream().forEach(System.out::println);
 
         // 3. Find all the distict department name
         List<String> allDistinceDept = studentList.stream().map(Student::getDept).distinct().collect(Collectors.toList());
@@ -53,7 +53,7 @@ public class StudentRun {
 
         // 4. Find all the contact No
         List<String> studentByContactsFlat = studentList.stream().flatMap(student -> student.getContacts().stream()).collect(Collectors.toList());
-//        studentByContactsFlat.stream().forEach(System.out::println);
+        studentByContactsFlat.stream().forEach(System.out::println);
 
         // 5. Group the student by Department
         Map<String, List<Student>> groupByDep = studentList.stream().collect(Collectors.groupingBy(x -> x.getDept()));
@@ -79,6 +79,6 @@ public class StudentRun {
 
         // 9. Find the 2nd highest rank
         Student student = studentList.stream().sorted(Comparator.comparing(Student::getRank)).skip(1).findFirst().get();
-        System.out.println(student);
+        //System.out.println(student);
     }
 }

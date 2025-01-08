@@ -32,8 +32,8 @@ public class MySecurityConfig {
 
 //        httpSecurity.authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated());
 
-        httpSecurity.authorizeHttpRequests(authorize -> authorize.requestMatchers("/hello").authenticated());
-
+//        httpSecurity.authorizeHttpRequests(authorize -> authorize.requestMatchers("*").authenticated());
+//
         httpSecurity.addFilterBefore(new MySecurityFilter(), BasicAuthenticationFilter.class);
 
         return httpSecurity.build();

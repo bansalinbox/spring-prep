@@ -2,8 +2,10 @@ package com.spring_prep.learning.dsa.kunal.DP.recursion.easy;
 
 public class FirstUpperCaseLetter {
     public static void main(String[] args) {
-        String input = "gees";
-        System.out.println(find(input, 0));
+
+        System.out.println((5 & 1) == 1);
+//        String input = "gees";
+//        System.out.println(find(input, 0));
     }
     public static char find(String input, int index){
 

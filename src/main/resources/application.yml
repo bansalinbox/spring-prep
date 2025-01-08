@@ -12,6 +12,10 @@ logging:
 #      ddl-auto: create
 
 spring:
+  data:
+    redis:
+      host: localhost
+      port: 6379
   datasource:
     url: jdbc:mysql://localhost:3306/data_jpa?createDatabaseIfNotExist=true
     username: root
@@ -19,5 +23,13 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
+    database: mysql
     show-sql: true
+
+
+#ddl-auto: create-drop
+#          create
+#          none
+#          update   compare with the java entity and table
+#          validate

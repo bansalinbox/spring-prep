@@ -6,6 +6,10 @@ public class MinAndMaxInAnArray {
         System.out.println(min(input, 0));
         System.out.println(minBetter(input, 0));
     }
+
+
+
+
     public static int min(int[] input, int index){
         int output = Integer.MAX_VALUE;
         if(index > input.length -1){

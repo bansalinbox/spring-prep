@@ -1,23 +1,25 @@
 package com.spring_prep.learning.jpa_bouali_long.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 @Entity
-public class Lecture {
-
-    @Id
-    @GeneratedValue
-    private Integer id;
+public class Lecture extends BaseEntity{
 
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "section_id")
+    private Section section;
+
+    @OneToOne
+    @JoinColumn(name = "resource_id")
+    private Resources resources;
+
 }
